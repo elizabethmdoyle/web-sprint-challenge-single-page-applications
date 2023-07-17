@@ -2,18 +2,38 @@ import React, {useState} from "react";
 import {Routes, Route, Link} from 'react-router-dom';
 import axios from 'axios';
 import Form from './components/Form'
+import schema from './validation/FormSchema';
+import * as yup from 'yup';
 
 const data = {
   name: '',
   email: '',
   phone: '',
   address: '',
+  crust: '',
   size: '',
   sauce: '',
-  topping1: true,
-  topping2: true,
+  cheese: '',
+  extracheese: false,
+  topping1: false,
+  topping2: false,
   special: '',
 
+}
+
+const initialFormErrors = {
+  name: '',
+  email: '',
+  phone: '',
+  address: '',
+  crust: '',
+  size: '',
+  sauce: '',
+  cheese: '',
+  extracheese: false,
+  topping1: false,
+  topping2: false,
+  special: '',
 }
 
 
@@ -28,6 +48,15 @@ const data = {
 - [ ] Text input for special instructions with an id of "special-text"
 - [ ] An Add to Order button that has an id of "order-button" and that submits the form and returns a database record of name, size, toppings and special instructions
 
+
+
+- [ ] Toggle form component for gluten free crust
+- [ ] Turn form element sections into nested routes
+- [ ] Test more of the application with Cypress
+- [ ] Build UI for the eventuality of a network error when POSTing the order
+- [ ] Add functionality to your order button that it leads to a Congrats! Pizza is on it's way! page **and** returns a database record of the whole order
+
+
 */
 
 const App = () => {
@@ -35,17 +64,40 @@ const App = () => {
 
 const [pizza, setPizza] = useState([]);
 const [formValues, setFormValues] = useState(data);
+const[formErrors, setFormErrors] = useState(initialFormErrors)
 
 //axios
 
-axios.get(`fakeapi.com`)
-    .then(res => setPizza(res.data, ...pizza))
-    .catch(err => console.error(err))
 
-//event handlers (onSubmit)
+// axios.get(`https://reqres.in/api/`)
+//     .then(res => setPizza(res.data, ...pizza))
+//     .catch(err => console.error(err))
 
+const submitForm = () => {
+          axios.post(`https://reqres.in/api/orders`, formValues)
+          .then(res => console.log(res.data)
+          // setPizza(res.data)
+          , ...pizza)
+          .catch(err => console.error(err))
+          .finally(() => setFormValues(data)) 
+}
+
+
+
+//event handlers
+
+const validate = (name, value) => {
+  yup
+  .reach(schema, name)
+  .validate(value)
+  .then(() => 
+    setFormErrors({...formErrors, [name]: ""}))
+  .catch(err => setFormErrors({...formErrors, [name]: err.errors[0]}))
+
+}
 
 const updateForm = (inputName, inputValue) => {
+  validate(inputName, inputValue)
   setFormValues({...formValues, [inputName]: inputValue})
 }
 
@@ -59,12 +111,12 @@ const onSubmit = (evt) => {
     
     <div>
       <nav>
-        <Link to="/" >Home</Link>
-        <Link to="/order" element={<Form />}>Order</Link>
+        <Link to="/" id="order-pizza">Home</Link>
+        <Link to="pizza" element={<Form />}>Order Now</Link>
       </nav>
     <Routes>
-      <Route path="/" />
-      <Route path="/order" element={<Form submit={onSubmit} update={updateForm}/>} />
+      <Route path="/"  />
+      <Route path="pizza" element={<Form value={formValues} submit={submitForm} update={updateForm}/>} />
    </Routes>
       
     </div>

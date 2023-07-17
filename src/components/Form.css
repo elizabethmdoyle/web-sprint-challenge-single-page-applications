@@ -1,0 +1,22 @@
+#order-pizza{
+    display: flex;
+    flex-direction: column wrap;
+    color: black;
+}
+
+
+#pizza-form {
+    border: 2px solid black;
+    margin: 3rem;
+    padding: 20px;
+    align-items: center;
+        
+}
+
+
+
+#pizza-form, .input {
+    padding: 25px;
+    margin: 2rem;
+}
+
