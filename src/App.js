@@ -1,14 +1,19 @@
-import React {useState} from "react";
+import React, {useState} from "react";
 import {Routes, Route, Link} from 'react-router-dom';
 import axios from 'axios';
 import Form from './components/Form'
 
 const data = {
   name: '',
+  email: '',
+  phone: '',
+  address: '',
   size: '',
+  sauce: '',
   topping1: true,
   topping2: true,
   special: '',
+
 }
 
 
@@ -28,14 +33,14 @@ const data = {
 const App = () => {
 //state
 
-const [pizza, setPizza] = useState(data);
-const [formValues, setFormValues] = useState();
+const [pizza, setPizza] = useState([]);
+const [formValues, setFormValues] = useState(data);
 
 //axios
 
 axios.get(`fakeapi.com`)
-    .then(res => setPizza(res.data))
-    .catch(err => console.err(err))
+    .then(res => setPizza(res.data, ...pizza))
+    .catch(err => console.error(err))
 
 //event handlers (onSubmit)
 
@@ -54,11 +59,12 @@ const onSubmit = (evt) => {
     
     <div>
       <nav>
-        <Link to="/">Home</Link>
+        <Link to="/" >Home</Link>
+        <Link to="/order" element={<Form />}>Order</Link>
       </nav>
     <Routes>
-      <Route path="/"  />
-      <Route path="/order" element={<Form submit={onSubmit}/>} />
+      <Route path="/" />
+      <Route path="/order" element={<Form submit={onSubmit} update={updateForm}/>} />
    </Routes>
       
     </div>
