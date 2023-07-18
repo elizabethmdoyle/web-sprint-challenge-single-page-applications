@@ -101,23 +101,43 @@ const updateForm = (inputName, inputValue) => {
   setFormValues({...formValues, [inputName]: inputValue})
 }
 
-const onSubmit = (evt) => {
-  setPizza([formValues, ...pizza])
-  evt.preventDefault()
-}
+// const onSubmit = (evt) => {
+//   setPizza([formValues, ...pizza])
+//   evt.preventDefault()
+// }
 
 
   return (
     
-    <div>
-      <nav>
-        <Link to="/" id="order-pizza">Home</Link>
-        <Link to="pizza" element={<Form />}>Order Now</Link>
-      </nav>
-    <Routes>
-      <Route path="/"  />
-      <Route path="pizza" element={<Form value={formValues} submit={submitForm} update={updateForm}/>} />
-   </Routes>
+    <div className="appContainer">
+      <section className="header">
+        <p>Bloomtech Eats</p>
+        <nav>
+          <Link to="/" id="order-pizza">Home</Link>
+          <Link to="/pizza" element={<Form />}>Order Now</Link>
+        </nav>
+          <Routes>
+              <Route path="/"  />
+              <Route path="/pizza" element={<Form value={formValues} submit={submitForm} update={updateForm}/>} />
+          </Routes>
+      </section>
+      <section className="banner">
+          <h1>Your Favorite food, delivered while coding</h1>
+          <button>Order Now</button>
+      </section>
+      <section>
+        <h3>Food Delivery in Gotham City</h3>
+      </section>
+
+      
+      
+
+
+
+
+
+
+
       
     </div>
     

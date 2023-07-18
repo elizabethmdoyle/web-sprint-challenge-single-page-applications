@@ -2,6 +2,7 @@ import React from 'react'
 import './Form.css'
 
 
+
 const Form = (props) => {
 
     const {value, submit, update} = props;
@@ -18,7 +19,8 @@ const onSubmit = (evt) => {
 
     return (
         
-        <div id="order-pizza"> Order Your Pizza 
+        <div id="order-pizza"> Build Your Own Pizza 
+            <img src="../Assets/Pizza.jpg" alt="form-img"/>
             <form id="pizza-form" onSubmit={onSubmit}>
                 <section>
                     <label> Name
@@ -55,76 +57,181 @@ const onSubmit = (evt) => {
                         />
                     </label>
                 </section>
+
+
                 <section>
 
-                <label> Sauce
-                    <select id="sauce" value={value.sauce} name="sauce-input">
-                        <option name="sauce" >Select A Sauce</option>
-                        <option value="classic">Classic</option>
-                        <option value="marinara">Marinara</option>
-                        <option value="alfredo">Alfredo</option>
-                        <option value="buffalo">Buffalo</option>
-                        <option value="barbeque">Barbeque</option>
-                    </select>
-                </label>
-                <label> Crust
-                    <select id="crust-dropdown" value={value.crust} name="crust-input">
-                        <option name="crust" >Select A Crust</option>
-                        <option value="buttery">Butter</option>
-                        <option value="garlic">Garlic</option>
-                        <option value="sesame">Sesame</option>
-                        <option value="cheese">Cheese</option>
-                    </select>
-                </label>
+                    <label> Sauce
+                        <select id="sauce" value={value.sauce} name="sauce-input">
+                            <option name="sauce" >Select A Sauce</option>
+                            <option value="classic">Classic</option>
+                            <option value="marinara">Marinara</option>
+                            <option value="alfredo">Alfredo</option>
+                            <option value="buffalo">Buffalo</option>
+                            <option value="barbeque">Barbeque</option>
+                        </select>
+                    </label>
+                    <label> Crust
+                        <select id="crust-dropdown" value={value.crust} name="crust-input">
+                            <option name="crust" >Select A Crust</option>
+                            <option value="buttery">Butter</option>
+                            <option value="garlic">Garlic</option>
+                            <option value="sesame">Sesame</option>
+                            <option value="cheese">Cheese</option>
+                        </select>
+                    </label>
                 
-                <label> Size
-                    <select id="size-dropdown" value={value.size} name="size-input">
-                        <option name="size" >Select A Size</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
-                        <option value="extra-large">Extra Large</option>
-                        <option value="personal">Personal</option>
-                    </select>
-                </label>
-                <label> Cheese
-                    <select id="cheese-dropdown" value={value.cheese} name="cheese-input">
-                        <option name="cheese" >Select A Cheese</option>
-                        <option value="Mozzerella">Mozzerella</option>
-                        <option value="Feta">Feta</option>
-                        <option value="parm">Parmesean</option>
-                        <option value="Provolone">Provolone</option>
-                        <option value="Specialty Cheese Blend">Specialty Cheese Blend</option>
-                    </select>
-                </label>
-                <label> Would you like Extra Cheese?  
-                    <input 
-                    name="extracheese"
-                    type="checkbox"
-                    value={value.extracheese}
-                    onChange={onChange}
-                    />
-                </label> 
+                    <label> Size
+                        <select id="size-dropdown" value={value.size} name="size-input">
+                            <option name="size" >Select A Size</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                            <option value="extra-large">Extra Large</option>
+                            <option value="personal">Personal</option>
+                        </select>
+                    </label>
+                    <label> Cheese
+                        <select id="cheese-dropdown" value={value.cheese} name="cheese-input">
+                            <option name="cheese" >Select A Cheese</option>
+                            <option value="mozzerella">Mozzerella</option>
+                            <option value="feta">Feta</option>
+                            <option value="parm">Parmesean</option>
+                            <option value="provolone">Provolone</option>
+                        </select>
+                    </label>
+                    <label> Would you like Extra Cheese?  
+                        <input 
+                        name="extracheese"
+                        type="checkbox"
+                        value={value.extracheese}
+                        onChange={onChange}
+                        />
+                    </label> 
                 </section>
 
-                <section>
-                 <label> Topping 1
-                    <input 
-                    name="topping1"
-                    type="checkbox"
-                    value={value.topping1}
-                    onChange={onChange}
-                    />
-                </label>   
+                <section className="meat">
+                    <p>Choose a Meat</p>
+                    <label> Pepperoni
+                        <input 
+                        name="Pepperoni"
+                        type="checkbox"
+                        value={value.pepperoni}
+                        onChange={onChange}
+                        />
+                    </label>
+
+                    <label> Sausage
+                        <input 
+                        name="sausage"
+                        type="checkbox"
+                        value={value.sausage}
+                        onChange={onChange}
+                        />
+                    </label>
+
+                    <label> Chicken
+                        <input 
+                        name="chicken"
+                        type="checkbox"
+                        value={value.chicken}
+                        onChange={onChange}
+                        />
+                    </label>
+                    
+                    <label> Beef
+                        <input 
+                        name="beef"
+                        type="checkbox"
+                        value={value.beef}
+                        onChange={onChange}
+                        />
+                    </label>
+
+                    <label> Bacon
+                        <input 
+                        name="bacon"
+                        type="checkbox"
+                        value={value.bacon}
+                        onChange={onChange}
+                        />
+                    </label>
+                    <label> Pork
+                        <input 
+                        name="pork"
+                        type="checkbox"
+                        value={value.pork}
+                        onChange={onChange}
+                        />
+                    </label>
+                    <label> Ham
+                        <input 
+                        name="ham"
+                        type="checkbox"
+                        value={value.ham}
+                        onChange={onChange}
+                        />
+                    </label>
+                               
                 </section>
                 <section>
-                    <label> Topping 2
-                    <input 
-                    name="topping2"
-                    type="checkbox"
-                    value={value.topping2}
-                    onChange={onChange}
-                    />
-                </label>
+                    <p>Choose Additional Toppings</p>
+                    <label> Onions
+                        <input 
+                        name="onions"
+                        type="checkbox"
+                        value={value.onions}
+                        onChange={onChange}
+                        />
+                    </label>
+                    <label> Green Peppers
+                        <input 
+                        name="gp"
+                        type="checkbox"
+                        value={value.gp}
+                        onChange={onChange}
+                        />
+                    </label>
+                    <label> Mushrooms
+                        <input 
+                        name="mushrooms"
+                        type="checkbox"
+                        value={value.mushrooms}
+                        onChange={onChange}
+                        />
+                    </label>
+                    <label> Olives
+                        <input 
+                        name="olives"
+                        type="checkbox"
+                        value={value.olives}
+                        onChange={onChange}
+                        />
+                    </label>
+                    <label> Tomatoes
+                        <input 
+                        name="tomatoes"
+                        type="checkbox"
+                        value={value.tomatoes}
+                        onChange={onChange}
+                        />
+                    </label>
+                    <label> Banana Peppers
+                        <input 
+                        name="bp"
+                        type="checkbox"
+                        value={value.bp}
+                        onChange={onChange}
+                        />
+                    </label>
+                    <label> Pineapples
+                        <input 
+                        name="pineapples"
+                        type="checkbox"
+                        value={value.pineapples}
+                        onChange={onChange}
+                        />
+                    </label>
+
                 </section>
                 
                 <label> Special Instructions
