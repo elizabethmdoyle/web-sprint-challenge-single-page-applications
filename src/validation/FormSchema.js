@@ -7,12 +7,14 @@ const FormSchema = yup.object().shape({
             .required("Please Enter Your Name"),
         email: yup
             .string()
-            .email("Please Enter A Valid Email Address ")
+            .email("Please Enter A Valid Email Address")
             .required("Please Enter A Valid Email Address ")
-            .min(2, "name must be at least 2 characters"),
+            .min(2, "Email must be at least 2 characters"),
         phone: yup
-            .string()
-            .required("Please Enter A Valid Phone Number "),
+            .number("Please Enter A Valid Phone Number")
+            .integer("Please Enter A Valid Phone Number")
+            .required("Please Enter A Valid Phone Number ")
+            .min(2, "Phone Number must be at least 2 characters"),
         address: yup
             .string()
             .required("Please Enter A Valid Address "),
@@ -32,8 +34,19 @@ const FormSchema = yup.object().shape({
             .string()
             .oneOf(['mozzerella, feta, parm, provolone'], 'Cheese is required'),
         extracheese: yup.boolean(),
-        topping1: yup.boolean(),
-        topping2: yup.boolean(),     
+        sausage: yup.boolean(),
+        chicken: yup.boolean(),
+        beef: yup.boolean(),
+        bacon: yup.boolean(),
+        pork: yup.boolean(),
+        ham: yup.boolean(),
+        onions: yup.boolean(),
+        gp: yup.boolean(),
+        mushrooms: yup.boolean(),
+        olives: yup.boolean(),
+        tomatoes: yup.boolean(),
+        bp: yup.boolean(),
+        pineapples: yup.boolean(),
         special: yup
             .string()
 

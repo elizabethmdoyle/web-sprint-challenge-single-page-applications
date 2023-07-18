@@ -5,7 +5,7 @@ import './Form.css'
 
 const Form = (props) => {
 
-    const {value, submit, update} = props;
+    const {value, submit, update, errors} = props;
 
 const onChange = (evt) => {
    const {name, value} = evt.target;
@@ -21,6 +21,32 @@ const onSubmit = (evt) => {
         
         <div id="order-pizza"> Build Your Own Pizza 
             <img src="../Assets/Pizza.jpg" alt="form-img"/>
+            <div className="errors">
+                    <p>{errors.name}</p>
+                    <p>{errors.email}</p>
+                    <p>{errors.phone}</p>
+                    <p>{errors.address}</p>
+                    <p>{errors.crust}</p>
+                    <p>{errors.size}</p>
+                    <p>{errors.sauce}</p>
+                    <p>{errors.cheese}</p>
+                    <p>{errors.extracheese}</p>
+                    <p>{errors.sausage}</p>
+                    <p>{errors.chicken}</p>
+                    <p>{errors.beef}</p>
+                    <p>{errors.bacon}</p>
+                    <p>{errors.pork}</p>
+                    <p>{errors.ham}</p>
+                    <p>{errors.onions}</p>
+                    <p>{errors.gp}</p>
+                    <p>{errors.mushrooms}</p>
+                    <p>{errors.olives}</p>
+                    <p>{errors.tomatoes}</p>
+                    <p>{errors.bp}</p>
+                    <p>{errors.pineapples}</p>
+                    <p>{errors.special}</p>
+            </div>
+
             <form id="pizza-form" onSubmit={onSubmit}>
                 <section>
                     <label> Name

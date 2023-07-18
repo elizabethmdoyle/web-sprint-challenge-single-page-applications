@@ -15,8 +15,20 @@ const data = {
   sauce: '',
   cheese: '',
   extracheese: false,
-  topping1: false,
-  topping2: false,
+  meat: false,
+  sausage: false,
+  chicken: false,
+  beef: false,
+  bacon: false,
+  pork: false,
+  ham: false,
+  onions: false,
+  gp: false,
+  mushrooms: false,
+  olives: false,
+  tomatoes: false,
+  bp: false,
+  pineapples: false,
   special: '',
 
 }
@@ -31,8 +43,20 @@ const initialFormErrors = {
   sauce: '',
   cheese: '',
   extracheese: false,
-  topping1: false,
-  topping2: false,
+  meat: false,
+  sausage: false,
+  chicken: false,
+  beef: false,
+  bacon: false,
+  pork: false,
+  ham: false,
+  onions: false,
+  gp: false,
+  mushrooms: false,
+  olives: false,
+  tomatoes: false,
+  bp: false,
+  pineapples: false,
   special: '',
 }
 
@@ -75,9 +99,10 @@ const[formErrors, setFormErrors] = useState(initialFormErrors)
 
 const submitForm = () => {
           axios.post(`https://reqres.in/api/orders`, formValues)
-          .then(res => console.log(res.data)
-          // setPizza(res.data)
-          , ...pizza)
+           .then(res => 
+          //console.log(res.data)
+          setPizza(res.data)
+      , ...pizza)
           .catch(err => console.error(err))
           .finally(() => setFormValues(data)) 
 }
@@ -101,10 +126,7 @@ const updateForm = (inputName, inputValue) => {
   setFormValues({...formValues, [inputName]: inputValue})
 }
 
-// const onSubmit = (evt) => {
-//   setPizza([formValues, ...pizza])
-//   evt.preventDefault()
-// }
+
 
 
   return (
@@ -118,7 +140,7 @@ const updateForm = (inputName, inputValue) => {
         </nav>
           <Routes>
               <Route path="/"  />
-              <Route path="/pizza" element={<Form value={formValues} submit={submitForm} update={updateForm}/>} />
+              <Route path="/pizza" element={<Form value={formValues} submit={submitForm} update={updateForm} errors={formErrors}/>} />
           </Routes>
       </section>
       <section className="banner">
@@ -129,16 +151,6 @@ const updateForm = (inputName, inputValue) => {
         <h3>Food Delivery in Gotham City</h3>
       </section>
 
-      
-      
-
-
-
-
-
-
-
-      
     </div>
     
    
