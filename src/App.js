@@ -15,7 +15,6 @@ const data = {
   sauce: '',
   cheese: '',
   extracheese: false,
-  meat: false,
   sausage: false,
   chicken: false,
   beef: false,
@@ -29,7 +28,7 @@ const data = {
   tomatoes: false,
   bp: false,
   pineapples: false,
-  special: '',
+  special: ''
 
 }
 
@@ -43,7 +42,6 @@ const initialFormErrors = {
   sauce: '',
   cheese: '',
   extracheese: false,
-  meat: false,
   sausage: false,
   chicken: false,
   beef: false,
@@ -57,7 +55,7 @@ const initialFormErrors = {
   tomatoes: false,
   bp: false,
   pineapples: false,
-  special: '',
+  special: ''
 }
 
 
@@ -131,11 +129,11 @@ const updateForm = (inputName, inputValue) => {
 
   return (
     
-    <div className="appContainer">
+    <div className="order-pizza">
       <section className="header">
         <p>Bloomtech Eats</p>
         <nav>
-          <Link to="/" id="order-pizza">Home</Link>
+          <Link to="/" >Home</Link>
           <Link to="/pizza" element={<Form />}>Order Now</Link>
         </nav>
           <Routes>

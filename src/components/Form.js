@@ -8,8 +8,11 @@ const Form = (props) => {
     const {value, submit, update, errors} = props;
 
 const onChange = (evt) => {
-   const {name, value} = evt.target;
-   update(name, value)
+   const {name, value, checked, type} = evt.target;
+
+   const valueToUse = type === "checkbox" ? checked : value
+
+   update(name, valueToUse)
 }
 
 const onSubmit = (evt) => {
@@ -131,6 +134,8 @@ const onSubmit = (evt) => {
                         type="checkbox"
                         value={value.extracheese}
                         onChange={onChange}
+                        checked={value.extracheese}
+
                         />
                     </label> 
                 </section>
@@ -139,10 +144,11 @@ const onSubmit = (evt) => {
                     <p>Choose a Meat</p>
                     <label> Pepperoni
                         <input 
-                        name="Pepperoni"
+                        name="pepperoni"
                         type="checkbox"
                         value={value.pepperoni}
                         onChange={onChange}
+                        checked={value.pepperoni}
                         />
                     </label>
 
@@ -152,6 +158,8 @@ const onSubmit = (evt) => {
                         type="checkbox"
                         value={value.sausage}
                         onChange={onChange}
+                        checked={value.sausage}
+
                         />
                     </label>
 
@@ -161,6 +169,8 @@ const onSubmit = (evt) => {
                         type="checkbox"
                         value={value.chicken}
                         onChange={onChange}
+                        checked={value.chicken}
+
                         />
                     </label>
                     
@@ -170,6 +180,8 @@ const onSubmit = (evt) => {
                         type="checkbox"
                         value={value.beef}
                         onChange={onChange}
+                        checked={value.beef}
+
                         />
                     </label>
 
@@ -179,6 +191,8 @@ const onSubmit = (evt) => {
                         type="checkbox"
                         value={value.bacon}
                         onChange={onChange}
+                        checked={value.bacon}
+
                         />
                     </label>
                     <label> Pork
@@ -187,6 +201,8 @@ const onSubmit = (evt) => {
                         type="checkbox"
                         value={value.pork}
                         onChange={onChange}
+                        checked={value.pork}
+
                         />
                     </label>
                     <label> Ham
@@ -195,6 +211,8 @@ const onSubmit = (evt) => {
                         type="checkbox"
                         value={value.ham}
                         onChange={onChange}
+                        checked={value.ham}
+
                         />
                     </label>
                                
@@ -207,6 +225,8 @@ const onSubmit = (evt) => {
                         type="checkbox"
                         value={value.onions}
                         onChange={onChange}
+                        checked={value.onions}
+
                         />
                     </label>
                     <label> Green Peppers
@@ -215,6 +235,8 @@ const onSubmit = (evt) => {
                         type="checkbox"
                         value={value.gp}
                         onChange={onChange}
+                        checked={value.gp}
+
                         />
                     </label>
                     <label> Mushrooms
@@ -223,6 +245,8 @@ const onSubmit = (evt) => {
                         type="checkbox"
                         value={value.mushrooms}
                         onChange={onChange}
+                        checked={value.mushrooms}
+
                         />
                     </label>
                     <label> Olives
@@ -231,6 +255,8 @@ const onSubmit = (evt) => {
                         type="checkbox"
                         value={value.olives}
                         onChange={onChange}
+                        checked={value.olives}
+
                         />
                     </label>
                     <label> Tomatoes
@@ -239,6 +265,8 @@ const onSubmit = (evt) => {
                         type="checkbox"
                         value={value.tomatoes}
                         onChange={onChange}
+                        checked={value.tomatoes}
+
                         />
                     </label>
                     <label> Banana Peppers
@@ -247,6 +275,8 @@ const onSubmit = (evt) => {
                         type="checkbox"
                         value={value.bp}
                         onChange={onChange}
+                        checked={value.bp}
+
                         />
                     </label>
                     <label> Pineapples
@@ -255,6 +285,8 @@ const onSubmit = (evt) => {
                         type="checkbox"
                         value={value.pineapples}
                         onChange={onChange}
+                        checked={value.pineapples}
+
                         />
                     </label>
 

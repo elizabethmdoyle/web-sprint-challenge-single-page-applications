@@ -34,6 +34,7 @@ const FormSchema = yup.object().shape({
             .string()
             .oneOf(['mozzerella, feta, parm, provolone'], 'Cheese is required'),
         extracheese: yup.boolean(),
+        pepperoni: yup.boolean(),
         sausage: yup.boolean(),
         chicken: yup.boolean(),
         beef: yup.boolean(),
