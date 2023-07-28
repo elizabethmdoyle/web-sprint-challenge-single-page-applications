@@ -18,6 +18,7 @@ const onChange = (evt) => {
 const onSubmit = (evt) => {
     evt.preventDefault()
     submit()
+
     }
 
     return (
@@ -86,48 +87,18 @@ const onSubmit = (evt) => {
                         />
                     </label>
                 </section>
-
-
                 <section>
 
-                    <label> Sauce
-                        <select id="sauce" value={value.sauce} name="sauce-input">
-                            <option name="sauce" >Select A Sauce</option>
-                            <option value="classic">Classic</option>
-                            <option value="marinara">Marinara</option>
-                            <option value="alfredo">Alfredo</option>
-                            <option value="buffalo">Buffalo</option>
-                            <option value="barbeque">Barbeque</option>
-                        </select>
-                    </label>
-                    <label> Crust
-                        <select id="crust-dropdown" value={value.crust} name="crust-input">
-                            <option name="crust" >Select A Crust</option>
-                            <option value="buttery">Butter</option>
-                            <option value="garlic">Garlic</option>
-                            <option value="sesame">Sesame</option>
-                            <option value="cheese">Cheese</option>
-                        </select>
-                    </label>
-                
                     <label> Size
-                        <select id="size-dropdown" value={value.size} name="size-input">
-                            <option name="size" >Select A Size</option>
+                        <select id="size-dropdown" value={value.size} onChange={onChange} name="size">
+                            <option name="size-input" >Select A Size</option>
                             <option value="medium">Medium</option>
                             <option value="large">Large</option>
                             <option value="extra-large">Extra Large</option>
                             <option value="personal">Personal</option>
                         </select>
                     </label>
-                    <label> Cheese
-                        <select id="cheese-dropdown" value={value.cheese} name="cheese-input">
-                            <option name="cheese" >Select A Cheese</option>
-                            <option value="mozzerella">Mozzerella</option>
-                            <option value="feta">Feta</option>
-                            <option value="parm">Parmesean</option>
-                            <option value="provolone">Provolone</option>
-                        </select>
-                    </label>
+                    
                     <label> Would you like Extra Cheese?  
                         <input 
                         name="extracheese"
@@ -139,8 +110,7 @@ const onSubmit = (evt) => {
                         />
                     </label> 
                 </section>
-
-                <section className="meat">
+                  <section className="meat">
                     <p>Choose a Meat</p>
                     <label> Pepperoni
                         <input 
@@ -302,7 +272,7 @@ const onSubmit = (evt) => {
                     />     
                 </label>
 
-            <input type="submit" value="Add to Order" />
+            <input id="order-button" type="submit" value="Add to Order" />
             </form>
         </div>
         

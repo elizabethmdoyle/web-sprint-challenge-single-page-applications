@@ -10,9 +10,9 @@ const data = {
   email: '',
   phone: '',
   address: '',
-  crust: '',
-  size: '',
   sauce: '',
+  crust: '',
+  size: '', 
   cheese: '',
   extracheese: false,
   sausage: false,
@@ -98,11 +98,13 @@ const[formErrors, setFormErrors] = useState(initialFormErrors)
 const submitForm = () => {
           axios.post(`https://reqres.in/api/orders`, formValues)
            .then(res => 
-          //console.log(res.data)
-          setPizza(res.data)
+         // console.log(res.data)
+           setPizza([res.data, ...pizza])
       , ...pizza)
           .catch(err => console.error(err))
-          .finally(() => setFormValues(data)) 
+          .finally((res) => 
+          //console.log(res.data), 
+          setFormValues(data)) 
 }
 
 
